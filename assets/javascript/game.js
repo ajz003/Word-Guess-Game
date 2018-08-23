@@ -1,10 +1,17 @@
+window.onload = function () {
+
 var wins = 0
-var losses = 0
-var guessesLeft = 6
+var guessesLeft = 8
 
 var dictionary = ["scala", "swift", "shell", "typescript", "c", "go", "css", "php", "ruby", "java", "python", "javascript"];
 
+var oldWords = [];
 var computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)]
+oldWords.push(computerGuess);
+console.log(oldWords)
+
+
+
 console.log("comp guess: " + computerGuess)
 
 var wordDisplay = [];
@@ -13,21 +20,31 @@ var _Display = [];
 for (var i = 0; i < computerGuess.length; i++) {
     wordDisplay.push(computerGuess.charAt(i));
 }
-console.log(wordDisplay)
 
 for (var i = 0; i < computerGuess.length; i++) {
     _Display.push("_ ");
 }
-console.log(_Display)
 
 var prevGuesses = [];
 
-console.log("wins :" + wins)
+var w = document.getElementById("wins");
+w.textContent = wins;
+
+var cw = document.getElementById("current-word")
+cw.textContent = _Display.join('').toUpperCase()
+
+var gr = document.getElementById("guesses-remaining")
+gr.textContent = guessesLeft;
+
+var ag = document.getElementById("already-guessed")
+ag.textContent = prevGuesses
 
 
 
 
 document.onkeyup = function (event) {
+
+if (oldWords.length != dictionary.length) {
 
     userGuess = event.key
     console.log("userGuess: " + userGuess)
@@ -54,6 +71,7 @@ document.onkeyup = function (event) {
 
     if (_Display.toString() == wordDisplay.toString()) {
         alert("You win! The word was " + wordDisplay.join('').toUpperCase() + " !");
+        wins++;
         reset();
     }
     console.log(_Display.toString());
@@ -67,42 +85,52 @@ document.onkeyup = function (event) {
 
     var w = document.getElementById("wins");
     w.textContent = wins;
-    
+
     var cw = document.getElementById("current-word")
     cw.textContent = _Display.join('').toUpperCase()
-    
+
     var gr = document.getElementById("guesses-remaining")
     gr.textContent = guessesLeft;
-    
+
     var ag = document.getElementById("already-guessed")
     ag.textContent = prevGuesses
+}
 
+else {
+    alert("You've guessed all the words! Refresh to restart!");
+}
 };
 
 function reset() {
 
-    guessesLeft = 6;
+        guessesLeft = 8;
 
-    computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)]
-    console.log("comp guess: " + computerGuess)
+        do {
+            computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)]
+        }
+        while (oldWords.indexOf(computerGuess) !== -1);
 
-    wordDisplay = [];
+        oldWords.push(computerGuess);
+        
+        console.log("comp guess: " + computerGuess)
 
-    _Display = [];
+        wordDisplay = [];
 
-    for (var i = 0; i < computerGuess.length; i++) {
-        wordDisplay.push(computerGuess.charAt(i));
+        _Display = [];
+
+        for (var i = 0; i < computerGuess.length; i++) {
+            wordDisplay.push(computerGuess.charAt(i));
+        }
+        console.log(wordDisplay)
+
+        for (var i = 0; i < computerGuess.length; i++) {
+            _Display.push("_ ");
+        }
+        console.log(_Display)
+
+
+        prevGuesses = [];
     }
-    console.log(wordDisplay)
-
-    for (var i = 0; i < computerGuess.length; i++) {
-        _Display.push("_ ");
-    }
-    console.log(_Display)
-
-
-    prevGuesses = [];
-
-
+    
 }
 

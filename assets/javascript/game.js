@@ -46,7 +46,9 @@ document.onkeyup = function (event) {
 
 if (oldWords.length != dictionary.length) {
 
-    userGuess = event.key
+        if (event.keyCode >= 65 && event.keyCode <= 90) {
+            userGuess = event.key
+        }
     console.log("userGuess: " + userGuess)
 
 

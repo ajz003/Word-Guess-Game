@@ -1,18 +1,13 @@
-window.onload = function () {
+window.onload = function() {
 
     var wins = 0
     var guessesLeft = 8
-
     var dictionary = ["scala", "swift", "shell", "typescript", "c", "go", "css", "php", "ruby", "java", "python", "javascript"];
 
     var oldWords = [];
     var computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)]
 
-    console.log(oldWords)
-
-
-
-    console.log("comp guess: " + computerGuess)
+    console.log("Computer's Guess: " + computerGuess)
 
     var wordDisplay = [];
     var _Display = [];
@@ -40,18 +35,11 @@ window.onload = function () {
     ag.textContent = prevGuesses
 
 
-
-
-    document.onkeyup = function (event) {
-
-
+    document.onkeyup = function(event) {
 
         if (event.keyCode >= 65 && event.keyCode <= 90) {
             userGuess = event.key
         }
-
-        console.log("userGuess: " + userGuess)
-
 
         for (var i = 0; i < wordDisplay.length; i++) {
 
@@ -59,18 +47,13 @@ window.onload = function () {
                 _Display.splice(i, 1, userGuess);
             }
 
-
         }
-
-        console.log("Previous Guesses: " + prevGuesses);
-        console.log("Guesses left: " + guessesLeft);
 
         if (oldWords.length < dictionary.length) {
             if (wordDisplay.includes(userGuess) == false && prevGuesses.includes(userGuess) == false) {
                 guessesLeft--;
                 prevGuesses.push(userGuess);
-                console.log("Previous Guesses: " + prevGuesses);
-                console.log("Guesses left: " + guessesLeft);
+
             }
         }
 
@@ -79,18 +62,13 @@ window.onload = function () {
             wins++;
             reset();
         }
-        console.log(_Display.toString());
-        console.log(wordDisplay.toString());
 
         if (guessesLeft === 0) {
             alert("You lose. The word was " + wordDisplay.join('').toUpperCase());
             reset();
-        }
-
-        else if (oldWords.length === dictionary.length) {
+        } else if (oldWords.length === dictionary.length) {
             alert("Game over. Refresh to play again!");
         }
-
 
         var w = document.getElementById("wins");
         w.textContent = wins;
@@ -104,24 +82,20 @@ window.onload = function () {
         var ag = document.getElementById("already-guessed")
         ag.textContent = prevGuesses
 
-
-
     };
 
+    
     function reset() {
 
         guessesLeft = 8;
         oldWords.push(computerGuess);
-        console.log("oldWordslength: " + oldWords.length)
 
         do {
             computerGuess = dictionary[Math.floor(Math.random() * dictionary.length)]
         }
         while (oldWords.includes(computerGuess) === true && oldWords.length < dictionary.length);
 
-
         if (oldWords.length < dictionary.length) {
-            console.log("comp guess: " + computerGuess)
 
             wordDisplay = [];
 
@@ -130,16 +104,14 @@ window.onload = function () {
             for (var i = 0; i < computerGuess.length; i++) {
                 wordDisplay.push(computerGuess.charAt(i));
             }
-            console.log(wordDisplay)
 
             for (var i = 0; i < computerGuess.length; i++) {
                 _Display.push("_ ");
             }
-            console.log(_Display)
 
+            console.log("Computer's New Guess: " + computerGuess)
 
             prevGuesses = [];
         }
     }
 }
-

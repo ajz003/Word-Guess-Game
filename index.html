@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="assets/javascript/game.js"></script>
 </head>
@@ -16,8 +15,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 center">
+
+            <div class="col-lg-8 center order-lg-2">
 
                 <h1 id="titular">
                     Hackerman
@@ -31,8 +30,8 @@
                     Wins
                 </h1>
 
-                <h1>
-                    <span id="wins"></span>
+                <h1 id="winbox">
+                    <span id="wins"></span>/12
                 </h1>
 
                 <h1>
@@ -60,7 +59,15 @@
                 </h1>
 
             </div>
-            <div class="col-lg-2"></div>
+            <div class="col-lg-2 order-lg-1">
+                <h1 id="about">Hackerman is a hangman game, where the possible words are 12 of the most common programming languages on GitHub. Good luck, agent.
+                    <div id="secret">Clever. Well, here's a hint: A real hacker knows how to hack into the mainframe (look at the console).</div>
+                </h1>
+                <h1 id="tag">
+                    "I'll hack your computer in seconds."
+                </h1>
+            </div>
+            <div class="col-lg-2 order-lg-12"></div>
         </div>
     </div>
 </body>

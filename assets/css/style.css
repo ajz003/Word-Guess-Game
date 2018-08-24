@@ -14,15 +14,30 @@ h1 {
     padding: 5px;
 }
 
+#about {
+    font-size: 16px;
+}
+
+#tag {
+    margin-top: 200px;
+}
+
 .center {
     border: 10px solid #15f50a;
     background-color: black;
 }
 
+#secret {
+    font-size: 8px;
+    color: black;
+}
+
+
 #already-guessed,
 #guesses-remaining,
 #current-word,
-#wins {
+#wins,
+#winbox {
     font-weight: bold;
 }
 
@@ -31,9 +46,6 @@ h1 {
     color: red;
 }
 
-#small {
-    font-size: 16px;
-}
 
 #titular {
     font-size: 72px;

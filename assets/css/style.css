@@ -1,0 +1,41 @@
+body {
+    background-image: url("../images/background.jpg");
+    color: #15f50a;
+}
+
+h1 {
+    border: 3px solid #15f50a;
+    background-color: black;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.center {
+    border: 10px solid #15f50a;
+    background-color: black;
+}
+
+#already-guessed,
+#guesses-remaining,
+#current-word,
+#wins {
+    font-weight: bold;
+}
+
+#already-guessed,
+#guesses-remaining {
+    color: red;
+}
+
+#small {
+    font-size: 16px;
+}
+
+#titular {
+    font-size: 72px;
+    font-weight: bolder;
+}
